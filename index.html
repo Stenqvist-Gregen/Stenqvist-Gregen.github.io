@@ -4,88 +4,596 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eric Stenqvist</title>
-
 <style>
-body{
-margin:0;
-font-family: system-ui;
-background:#0f172a;
-color:white;
+:root{
+  --bg:#f4f1ea;
+  --surface:#fffdfa;
+  --surface-strong:#ffffff;
+  --text:#101010;
+  --muted:#68645e;
+  --line:#e6e0d6;
+  --accent:#ee2b2b;
+  --shadow:0 18px 60px rgba(16,16,16,0.08);
+  --radius-xl:32px;
+  --radius-lg:24px;
+  --radius-md:18px;
+  --max-width:1120px;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:60px 20px;
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(238,43,43,0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(16,16,16,0.04), transparent 24%),
+    var(--bg);
+  color:var(--text);
+}
+
+a{
+  color:inherit;
+}
+
+.page{
+  width:min(calc(100% - 32px), var(--max-width));
+  margin:0 auto;
+}
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:22px 0 0;
+}
+
+.header-shell{
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+}
+
+.logo{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.logo-mark{
+  width:118px;
+  height:auto;
+  display:block;
+}
+
+.logo-text{
+  font-size:0.9rem;
+  letter-spacing:0.18em;
+  text-transform:lowercase;
+  color:var(--text);
+}
+
+main{
+  padding:40px 0 72px;
 }
 
 .hero{
-text-align:center;
-padding-top:120px;
-padding-bottom:120px;
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:72px 0 48px;
+}
+
+.hero-inner{
+  max-width:760px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border:1px solid rgba(16,16,16,0.08);
+  background:rgba(255,255,255,0.68);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:0.92rem;
+  backdrop-filter:blur(12px);
+}
+
+.eyebrow::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--accent);
+}
+
+h1,
+h2,
+h3{
+  margin:0;
+  font-weight:700;
+  letter-spacing:-0.04em;
 }
 
 h1{
-font-size:48px;
-margin-bottom:10px;
+  margin-top:24px;
+  font-size:clamp(3.4rem, 9vw, 6.8rem);
+  line-height:0.95;
 }
 
-p{
-color:#cbd5e1;
-font-size:18px;
+.hero-subtitle{
+  max-width:620px;
+  margin:22px auto 0;
+  font-size:clamp(1.05rem, 2vw, 1.3rem);
+  line-height:1.7;
+  color:var(--muted);
 }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 22px;
-background:#3b82f6;
-border-radius:10px;
-text-decoration:none;
-color:white;
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 22px;
+  border-radius:999px;
+  border:1px solid transparent;
+  text-decoration:none;
+  transition:transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+}
+
+.button-primary{
+  background:var(--text);
+  color:#fff;
+  box-shadow:0 14px 30px rgba(16,16,16,0.14);
+}
+
+.button-secondary{
+  background:rgba(255,255,255,0.72);
+  border-color:rgba(16,16,16,0.08);
+}
+
+.grid{
+  display:grid;
+  gap:22px;
 }
 
 .section{
-background:white;
-color:#111;
-border-radius:20px;
-margin-top:-60px;
-padding:40px;
+  margin-top:28px;
 }
 
-.project{
-margin-top:20px;
-padding:20px;
-border:1px solid #eee;
-border-radius:12px;
+.section-card{
+  background:rgba(255,255,255,0.78);
+  border:1px solid rgba(16,16,16,0.06);
+  border-radius:var(--radius-xl);
+  padding:32px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:16px;
+  margin-bottom:28px;
+}
+
+.section-title{
+  font-size:clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.section-copy{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.timeline{
+  position:relative;
+  display:grid;
+  gap:18px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:10px;
+  bottom:10px;
+  width:2px;
+  background:linear-gradient(to bottom, rgba(238,43,43,0.28), rgba(16,16,16,0.08));
+}
+
+.timeline-item{
+  position:relative;
+  margin-left:40px;
+  padding:24px;
+  border-radius:var(--radius-lg);
+  background:var(--surface-strong);
+  border:1px solid var(--line);
+  transition:transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-34px;
+  top:28px;
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  background:var(--accent);
+  box-shadow:0 0 0 6px rgba(238,43,43,0.12);
+}
+
+.timeline-item:hover,
+.project-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(16,16,16,0.08);
+  border-color:rgba(16,16,16,0.14);
+}
+
+.timeline-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.timeline-role{
+  font-size:1.15rem;
+}
+
+.timeline-company{
+  margin-top:4px;
+  color:var(--muted);
+}
+
+.timeline-years{
+  padding:8px 12px;
+  border-radius:999px;
+  background:#f7f3ec;
+  color:var(--muted);
+  white-space:nowrap;
+  font-size:0.92rem;
+}
+
+.timeline-description{
+  margin:16px 0 0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.skill-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:12px 16px;
+  border-radius:999px;
+  background:var(--surface-strong);
+  border:1px solid var(--line);
+  color:var(--text);
+  transition:transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.skill-pill:hover{
+  transform:translateY(-2px);
+  border-color:rgba(238,43,43,0.28);
+  background:#fff;
+}
+
+.projects-grid{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.project-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:250px;
+  padding:26px;
+  border-radius:var(--radius-lg);
+  background:var(--surface-strong);
+  border:1px solid var(--line);
+  transition:transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.project-card p{
+  margin:14px 0 24px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.project-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.project-link::after{
+  content:"→";
+  transition:transform 180ms ease;
+}
+
+.project-link:hover::after{
+  transform:translateX(4px);
+}
+
+footer{
+  padding:24px 0 56px;
+}
+
+.footer-shell{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+@media (max-width: 920px){
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 720px){
+  .page{
+    width:min(calc(100% - 20px), var(--max-width));
+  }
+
+  .site-header{
+    padding-top:14px;
+  }
+
+  .logo-mark{
+    width:92px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:56px 0 24px;
+  }
+
+  .section-card{
+    padding:24px;
+    border-radius:26px;
+  }
+
+  .section-heading,
+  .timeline-meta,
+  .footer-shell{
+    display:block;
+  }
+
+  .section-copy{
+    margin-top:12px;
+  }
+
+  .timeline-years{
+    display:inline-flex;
+    margin-top:14px;
+  }
+
+  .timeline{
+    gap:14px;
+  }
+
+  .timeline-item{
+    margin-left:28px;
+    padding:20px;
+  }
+
+  .timeline-item::before{
+    left:-23px;
+  }
+
+  .timeline::before{
+    left:10px;
+  }
 }
 </style>
 </head>
-
 <body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-shell">
+        <a class="logo" href="#" aria-label="gregen.se">
+          <svg class="logo-mark" viewBox="0 0 260 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="#ee2b2b" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 176c10 0 10-8 20-8s10 8 20 8 10-8 20-8 10 8 20 8 10-8 20-8 10 8 20 8 10-8 20-8 10 8 20 8 10-8 20-8 10 8 20 8" />
+              <path d="M47 170c-2-13-3-29-3-46 0-23 10-37 28-44 10-4 16-12 19-24 2-11 1-22 4-32 4-14 17-21 36-21 19 0 32 7 36 21 3 10 2 21 4 32 3 12 9 20 19 24 18 7 28 21 28 44 0 17-1 33-3 46" />
+              <path d="M81 78c10-9 28-14 50-14 22 0 40 5 50 14" />
+              <path d="M83 91c10 6 15 14 15 25 0 7-3 13-9 19-6 6-6 14 0 20" />
+              <path d="M179 91c-10 6-15 14-15 25 0 7 3 13 9 19 6 6 6 14 0 20" />
+              <path d="M127 96c-8 7-8 17 0 24-7 5-7 12 0 16 17 2 31-7 46-10 18-5 36 0 52-9 14-8 23-24 37-35 11-9 18-18 24-28" />
+              <path d="M188 126c23 0 41-4 52-13 11-9 18-24 31-35 12-11 21-20 28-31" />
+            </g>
+            <ellipse cx="131" cy="62" rx="28" ry="8.5" fill="#fffdfa" stroke="#ee2b2b" stroke-width="6.5"/>
+            <ellipse cx="131" cy="62" rx="7" ry="7" fill="#ee2b2b"/>
+          </svg>
+          <span class="logo-text">gregen.se</span>
+        </a>
+      </div>
+    </header>
 
-<div class="hero">
-<h1>Eric Stenqvist</h1>
-<p>Jag bygger saker på internet</p>
-<a class="btn" href="#">Kontakta mig</a>
-</div>
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <span class="eyebrow">Portfolio</span>
+          <h1>Eric Stenqvist</h1>
+          <p class="hero-subtitle">
+            Media student creating thoughtful digital experiences, visual storytelling and modern creative work with a calm Scandinavian aesthetic.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#experience">View Experience</a>
+            <a class="button button-secondary" href="#projects">See Projects</a>
+          </div>
+        </div>
+      </section>
 
-<div class="container">
-<div class="section">
-<h2>Projekt</h2>
+      <section class="section" id="experience">
+        <div class="section-card">
+          <div class="section-heading">
+            <div>
+              <h2 class="section-title">CV / Experience</h2>
+            </div>
+            <p class="section-copy">
+              Latest role first in a clean timeline layout. I could not safely extract the PDF text in this environment, so the entries below are ready for you to replace with your exact CV details.
+            </p>
+          </div>
 
-<div class="project">
-<h3>Projekt 1</h3>
-<p>Kort beskrivning</p>
-</div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-meta">
+                <div>
+                  <h3 class="timeline-role">Latest role</h3>
+                  <div class="timeline-company">Company name</div>
+                </div>
+                <div class="timeline-years">2023 – Present</div>
+              </div>
+              <p class="timeline-description">
+                Add a short description of your current role, focus area and the kind of impact or responsibilities you have.
+              </p>
+            </article>
 
-<div class="project">
-<h3>Projekt 2</h3>
-<p>Kort beskrivning</p>
-</div>
+            <article class="timeline-item">
+              <div class="timeline-meta">
+                <div>
+                  <h3 class="timeline-role">Previous role</h3>
+                  <div class="timeline-company">Company name</div>
+                </div>
+                <div class="timeline-years">2021 – 2023</div>
+              </div>
+              <p class="timeline-description">
+                Add a concise summary here with your main tasks, achievements or the type of projects you worked on.
+              </p>
+            </article>
 
-</div>
-</div>
+            <article class="timeline-item">
+              <div class="timeline-meta">
+                <div>
+                  <h3 class="timeline-role">Earlier experience</h3>
+                  <div class="timeline-company">Company name</div>
+                </div>
+                <div class="timeline-years">2019 – 2021</div>
+              </div>
+              <p class="timeline-description">
+                Add an earlier experience entry here to complete the structured CV timeline.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
+      <section class="section" id="skills">
+        <div class="section-card">
+          <div class="section-heading">
+            <div>
+              <h2 class="section-title">Skills</h2>
+            </div>
+            <p class="section-copy">
+              Rounded tags with generous spacing for a clean, modern overview. Replace these with your real strengths whenever you are ready.
+            </p>
+          </div>
+
+          <div class="skills">
+            <span class="skill-pill">Content Creation</span>
+            <span class="skill-pill">Visual Storytelling</span>
+            <span class="skill-pill">Media Production</span>
+            <span class="skill-pill">Creative Direction</span>
+            <span class="skill-pill">Photography</span>
+            <span class="skill-pill">Video Editing</span>
+            <span class="skill-pill">Brand Identity</span>
+            <span class="skill-pill">Digital Design</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-card">
+          <div class="section-heading">
+            <div>
+              <h2 class="section-title">Projects</h2>
+            </div>
+            <p class="section-copy">
+              A simple card layout for current and previous work. These are placeholders for now, designed so you can edit titles, descriptions and links quickly.
+            </p>
+          </div>
+
+          <div class="grid projects-grid">
+            <article class="project-card">
+              <div>
+                <h3>Current project</h3>
+                <p>
+                  Add your latest active project here with a short description of the goal, your role and what makes it interesting.
+                </p>
+              </div>
+              <a class="project-link" href="#">Project link</a>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <h3>Previous project</h3>
+                <p>
+                  Use this card for a completed project, freelance collaboration, course production or personal creative work.
+                </p>
+              </div>
+              <a class="project-link" href="#">Project link</a>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <h3>Archive project</h3>
+                <p>
+                  A third project card gives the section balance and lets you highlight a broader range of experience over time.
+                </p>
+              </div>
+              <a class="project-link" href="#">Project link</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-shell">
+        <div>Eric Stenqvist</div>
+        <div>Media student</div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

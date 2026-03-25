@@ -294,6 +294,26 @@ h1{
   gap:12px;
 }
 
+.meta-grid{
+  grid-template-columns:1.4fr 0.8fr;
+}
+
+.meta-stack{
+  display:grid;
+  gap:22px;
+}
+
+.info-list{
+  display:grid;
+  gap:8px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.info-list strong{
+  color:var(--text);
+}
+
 .skill-pill{
   display:inline-flex;
   align-items:center;
@@ -365,6 +385,10 @@ footer{
 
 @media (max-width: 920px){
   .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .meta-grid{
     grid-template-columns:1fr;
   }
 }
@@ -455,7 +479,7 @@ footer{
           <span class="eyebrow">Portfolio</span>
           <h1>Eric Stenqvist</h1>
           <p class="hero-subtitle">
-            Media student creating thoughtful digital experiences, visual storytelling and modern creative work with a calm Scandinavian aesthetic.
+            Studerande vid Media- och Kommunikationsprogrammet vid Jönköpings Universitet, som brinner för att göra radio &amp; poddar.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#experience">View Experience</a>
@@ -465,105 +489,146 @@ footer{
       </section>
 
       <section class="section" id="experience">
+        <div class="grid meta-grid">
+          <div class="section-card">
+            <div class="section-heading">
+              <div>
+                <h2 class="section-title">Min pitch</h2>
+              </div>
+            </div>
+            <p class="section-copy">
+              Studerande vid Media- och Kommunikationsprogrammet vid Jönköpings Universitet, som brinner för att göra radio &amp; poddar. Ledde under hösten 2025 Radio Ks 36 timmars livesändning som drog in 180 000 kr till Musikhjälpen.
+            </p>
+          </div>
+
+          <div class="meta-stack">
+            <div class="section-card">
+              <div class="section-heading">
+                <div>
+                  <h2 class="section-title">Kontakt</h2>
+                </div>
+              </div>
+              <div class="info-list">
+                <div>Scheelegatan 13A</div>
+                <div>Jönköping 553 32</div>
+                <div>070-270 05 88</div>
+                <div>stenqvist.eric@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-heading">
+                <div>
+                  <h2 class="section-title">Övriga meriter</h2>
+                </div>
+              </div>
+              <div class="info-list">
+                <div>B-Körkort 2018</div>
+              </div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-heading">
+                <div>
+                  <h2 class="section-title">Språk</h2>
+                </div>
+              </div>
+              <div class="info-list">
+                <div>Svenska och Engelska</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="section-card">
           <div class="section-heading">
             <div>
-              <h2 class="section-title">CV / Experience</h2>
+              <h2 class="section-title">Erfarenhet</h2>
             </div>
-            <p class="section-copy">
-              A structured overview of recent work and practical experience, presented with the latest role first.
-            </p>
           </div>
 
           <div class="timeline">
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Produktionsansvarig</h3>
-                  <div class="timeline-company">Radio K, Jonkopings University</div>
+                  <h3 class="timeline-role">Radio K, Jönköpings University — Produktionsansvarig</h3>
                 </div>
                 <div class="timeline-years">2025</div>
               </div>
               <p class="timeline-description">
-                Varit produktionsansvarig i Radio K, Jonkopings studentradio. Produktion och redigering av poddar samt livesand radio.
+                Varit produktionsansvarig iRadio K, Jönköpings studentradio. Produktion och redigering av poddar samt livesänt radio.
               </p>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Servis</h3>
-                  <div class="timeline-company">Perssons i Backen, Sjötorp</div>
+                  <h3 class="timeline-role">Perssons I Backen, Sjötorp — Servis</h3>
                 </div>
-                <div class="timeline-years">Sommaren 2024 – 2025</div>
+                <div class="timeline-years">Somrarna 2024-2025</div>
               </div>
               <p class="timeline-description">
-                Arbetade som servitor och kassaanvarig pa restaurangen Perssons i Backen.
+                Arbetade som servitör och kassaansvarig på restaurangen Perssons i Backen.
               </p>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Servis, disk och vaktmastare</h3>
-                  <div class="timeline-company">Bustamon Fjällgård, Åre</div>
+                  <h3 class="timeline-role">Bustamon Fjällgård, Åre — Servis, disk och vaktmästare</h3>
                 </div>
-                <div class="timeline-years">Säsongerna 2020 – 2021, 2022 – 2023 och 2023 – 2024</div>
+                <div class="timeline-years">Säsongerna 2020-2021, 2022-2023 och 2023-2024.</div>
               </div>
               <p class="timeline-description">
-                Jobbade i Åre pa Bustamons Fjällgård tre säsonger pa olika positioner inom bade hotell och restaurang.
+                Jobbade i Åre på Bustamons Fjällgård tre säsonger på olika positioner inom både hotell och restaurang.
               </p>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Snickare</h3>
-                  <div class="timeline-company">Frilanssnickare, Göteborg</div>
+                  <h3 class="timeline-role">Frilanssnickare, Göteborg — Snickare</h3>
                 </div>
-                <div class="timeline-years">Augusti 2023 – December 2023</div>
+                <div class="timeline-years">2023 Augusti till December</div>
               </div>
               <p class="timeline-description">
-                Jobbade med att renovera och inreda ett kontor i centrala Göteborg.
+                Jobbade med att renovera och inreda ett kontor i centrala Göteborg.
               </p>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Slussvakt</h3>
-                  <div class="timeline-company">Göta Kanal, Sjötorp</div>
+                  <h3 class="timeline-role">Göta Kanal, Sjötorp — Slussvakt</h3>
                 </div>
                 <div class="timeline-years">Sommaren 2023</div>
               </div>
               <p class="timeline-description">
-                Som slussvakt i Sjötorp mötte jag turister från många olika länder. De kom med både båt och cykel.
+                Sommaren 2023 jobbade jag som slussvakt i Sjötorp. Där mötte jag turister från många olika länder. De kom med både båt och cykel.
               </p>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Servis</h3>
-                  <div class="timeline-company">Cafe Schneider, St Anton Österrike</div>
+                  <h3 class="timeline-role">Cafe Schneider, St Anton Österrike — Servis</h3>
                 </div>
-                <div class="timeline-years">Säsongen 2021 – 2022</div>
+                <div class="timeline-years">Säsongen 2021-2022</div>
               </div>
               <p class="timeline-description">
-                Arbetade i servicen, med nästan bara engelsksprakiga kunder. Högt tempo med bade mat och dryck.
+                Arbetade i servicen, med nästan bara engelskspråkiga kunder. Högt tempo med både mat och dryck.
               </p>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
                 <div>
-                  <h3 class="timeline-role">Programchef</h3>
-                  <div class="timeline-company">KFUM Ångsholmen, Stockholm</div>
+                  <h3 class="timeline-role">KFUM Ångsholmen, Stockholm — Programchef</h3>
                 </div>
                 <div class="timeline-years">Somrarna 2020, 2021, 2022, 2023</div>
               </div>
               <p class="timeline-description">
-                Ansvarig för lägerdeltagarnas program, administrativt och praktiskt under två lägerperioder, ansvarig för 100 barn och 50 ledare.
+                Ansvarig för lägerdeltagarnas program, administrativt och praktiskt under två lägerperioder, ansvarig för 100 barn och 50 ledare.
               </p>
             </article>
           </div>
@@ -574,10 +639,10 @@ footer{
         <div class="section-card">
           <div class="section-heading">
             <div>
-              <h2 class="section-title">Skills</h2>
+              <h2 class="section-title">Kompetenser</h2>
             </div>
             <p class="section-copy">
-              Rounded tags with generous spacing for a clean, modern overview. Replace these with your real strengths whenever you are ready.
+              En snabb översikt av områden som återkommer i ditt CV.
             </p>
           </div>
 
